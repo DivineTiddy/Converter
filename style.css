@@ -1,0 +1,303 @@
+body {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+header {
+  width: inherit;
+  height: auto;
+  background-color: #003305;
+  padding: 1rem 0rem;
+}
+header h1 {
+  color: #68e87c;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav {
+  width: inherit;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+nav div {
+  width: 30%;
+  color: #68e87c;
+  height: inherit;
+}
+nav div ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav div ul li {
+  list-style: none;
+}
+nav div ul li a {
+  color: #68e87c;
+  text-decoration: none;
+  padding: 0.5rem 0.5rem;
+}
+nav div ul li a:hover {
+  border: 1px solid #68e87c;
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
+}
+.nav_detailes {
+  width: 100%;
+  height: 10vh;
+  background-color: #1a481e;
+  margin: 2rem 0rem;
+  justify-content: center;
+  display: flex;
+}
+.converter_container {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0rem;
+}
+.text {
+  text-align: center;
+}
+.converter_container form {
+  width: 60%;
+  height: auto;
+  border: 1px solid black;
+  background-color: #fffffc;
+  border-radius: 20px;
+}
+.nav_detailes div {
+  width: 60%;
+  height: inherit;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  color: #68e87c;
+}
+.nav_detailes div h4:hover {
+  transition: all 1s ease;
+  border-bottom: solid 1px #68e87c;
+}
+.nav_detailes div h3:hover {
+  transition: all 1s ease;
+  border-bottom: solid 1px #68e87c;
+}
+.amount {
+  width: 80%;
+  height: 10vh;
+  border: 1px solid black;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-around;
+  margin: 1rem 0rem;
+}
+.amount input {
+  width: 60%;
+  height: 100%;
+  padding: 0px 30px;
+  border: none;
+  outline: none;
+}
+.amount select {
+  height: 100%;
+  width: 10%;
+  outline: none;
+  border: none;
+}
+.converter_container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0rem;
+}
+.converter_container form button {
+  width: 30%;
+  padding: 10px 0px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin: 1rem 0rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.converter_container form button:hover {
+  border: 1px solid #68e87c;
+  color: #68e87c;
+}
+.form_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.showdetailes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0rem;
+}
+.converted_input_holder {
+  width: 10%;
+  height: 100%;
+  padding: 0px 30px;
+  border: none;
+  outline: none;
+}
+/*main*/
+main {
+  width: inherit;
+  height: auto;
+  background-color: #ebefe9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  width: 60%;
+  height: 40vh;
+  margin: 5rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 20px;
+  background-image: url(signUp_img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.card h1,
+.sign_up_btn {
+  margin: 0rem 1rem;
+}
+.sign_up_btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #68e87c;
+  cursor: pointer;
+  width: 20%;
+}
+.sign_up_btn:hover {
+  background-color: white;
+  color: #68e87c;
+  transition: all 1s ease-in-out;
+}
+.read_content {
+  width: 80%;
+  height: auto;
+  text-align: center;
+  margin: 3rem 0rem;
+}
+.display_currencies {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.display_currencies ul {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+}
+.display_currencies ul li {
+  list-style: none;
+  border: 1px solid #68e87c;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0rem;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  align-items: center;
+}
+.display_currencies ul li img {
+  height: 20px;
+  width: 30px;
+}
+.display_currencies ul li:hover {
+  background-color: #ebefe9;
+  transition: all 1s ease-in-out;
+}
+.span {
+  text-align: center;
+}
+footer{
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebefe9;
+  justify-content: center;
+}
+footer p{
+  text-align: center;
+}
+@media screen and (max-width: 1000px) {
+  .converter_container form {
+    width: 70%;
+  }
+  .card {
+    width: 70%;
+  }
+  .amount {
+    width: 95%;
+  }
+  .for_mobile{
+    display: none;
+  }
+  .nav_detailes{
+    display: none;
+  }
+  nav{
+    align-items: center;
+    height: auto;
+  }
+  header h1{
+    height: auto;
+  }
+}
+@media screen and (max-width: 770px) {
+  .converter_container form {
+    width: 90%;
+  }
+  .card {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .converter_container form {
+    width: 93%;
+  }
+  .card {
+    width: 93%;
+  }
+  .amount select {
+    width: 20%;
+  }
+  .amount input {
+    width: 20%;
+  }
+  .display_currencies ul li {
+    width: 90%;
+  }
+  .sign_up_btn {
+    width: 40%;
+  }
+}
