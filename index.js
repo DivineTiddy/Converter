@@ -11,13 +11,31 @@ const to_display = document.querySelector(`.to_display`);
 const amount_show = document.querySelector(`#show_amount`);
 const showtime = document.querySelector(`.showtime`);
 const display_currencies = document.querySelector(`.display_currencies`);
+const display_list = document.querySelector(`.display_list`);
+const Search_btn = document.querySelector(`.Search_btn`);
+const search_input = document.querySelector(`#search_input`);
+const toggle = document.querySelector(`.toggle`);
+const for_mobile = document.querySelector(`.for_mobile`);
+const close_toggle = document.querySelector(`.close_toggle`);
 
 class Converter {
   constructor() {
     this._showApi();
     this._restCountry();
+    this._toggle();
+    this._close_toggle();
 
     form.addEventListener(`submit`, this._showValue.bind(this));
+  }
+  _close_toggle() {
+    close_toggle.addEventListener(`click`, function () {
+      for_mobile.classList.remove(`for_mobile_active`);
+    });
+  }
+  _toggle() {
+    toggle.addEventListener(`click`, function () {
+      for_mobile.classList.toggle(`for_mobile_active`);
+    });
   }
 
   _showValue(e) {
@@ -34,8 +52,6 @@ class Converter {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
-
         //alert(`${from} GBP = ${data.rates.USD} USD`);
         from_display.textContent = `${data.amount} ${fromCurrency}`;
         // to_display.textContent = `${rates}`;
@@ -51,11 +67,9 @@ class Converter {
     fetch(`https://${host}/latest`)
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         for (const key in data.rates) {
           //console.log(data.rates[key]);
           // from countries
-         
 
           //
           const html = `
@@ -82,27 +96,73 @@ class Converter {
       });
   }
   _restCountry() {
-    fetch(`https://restcountries.com/v3.1/all
-    `).then((response) => response.json()).then((data)=>{
-      console.log(data);
-      data.forEach(datas => {
-        const name = datas.name.common;
-        const flag = datas.flags.svg;
-        for (const key in datas.currencies) {
-          const currenciesName = datas.currencies[key].symbol;
-         // console.log(currenciesName);
-         const html = `
-         <ul>
-          <li><img src="${flag}" alt=""><span class="span">${name} </span><span>${currenciesName ? currenciesName : ``}</span></li>
-        </ul>
-         `
-         display_currencies.insertAdjacentHTML(`afterbegin`,html)
-         
-        }
+    Search_btn.addEventListener(`click`, function (e) {
+      e.preventDefault();
+      const search =
+        String(search_input.value[0]).toUpperCase() +
+        String(search_input.value).slice(1);
+      fetch(`https://restcountries.com/v3.1/name/${search}
+      `)
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach((datas) => {
+            const region = datas.region;
+            const name = datas.name.common;
+            const flag = datas.flags.svg;
+            const maps = datas.maps.googleMaps;
+            // map
 
-      });
-    })
+            //
+            for (const key in datas.currencies) {
+              const currenciesName = datas.currencies[key].symbol;
+              // console.log(currenciesName);
+              const html = `
+              <ul>
+              <li>
+                <span>
+                <img src=${flag}>
+                ${name}
+                </span>
+                <span>Region 🌍:
+                  ${region}
+                </span>
+                <span>currencies :
+                  ${currenciesName}
+                </span>
+              </li>
+            </ul>
+            
+      
+          `;
+              display_list.insertAdjacentHTML(`afterbegin`, html);
+            }
+          });
+        });
+    });
   }
+  // _restCountryTwo(){
+  //   const tocurrency = currency_to.value;
+  //   fetch(`https://restcountries.com/v3.1/currency/${tocurrency}
+
+  //   `).then((response) => response.json()).then((data)=>{
+  //     console.log(data);
+  //     data.forEach(datas => {
+  //       const name = datas.name.common;
+  //       const flag = datas.flags.svg;
+  //       for (const key in datas.currencies) {
+  //         const currenciesName = datas.currencies[key].symbol;
+  //        // console.log(currenciesName);
+  //       const html = `
+
+  //       `
+  //       top_currency_two.insertAdjacentHTML(`afterbegin`,html)
+
+  //       }
+
+  //     });
+  //   })
+
+  // }
 }
 
 const converter = new Converter();
