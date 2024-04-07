@@ -17,9 +17,15 @@ const search_input = document.querySelector(`#search_input`);
 const toggle = document.querySelector(`.toggle`);
 const for_mobile = document.querySelector(`.for_mobile`);
 const close_toggle = document.querySelector(`.close_toggle`);
+const animate_scroll = document.querySelector(`.animate_scroll`);
+const card = document.querySelector(`.card`);
+const read_content = document.querySelector(`.read_content`);
+const animate_scroll_read_content = document.querySelector(`.animate_scroll_read_content`)
 
 class Converter {
   constructor() {
+    this._animatereadcontent()
+    this._animatescroll();
     this._showApi();
     this._restCountry();
     this._toggle();
@@ -163,6 +169,31 @@ class Converter {
   //   })
 
   // }
+  _animatescroll() {
+    window.addEventListener(`scroll`, this._animateFuction);
+  }
+  _animateFuction() {
+    const x = window.innerHeight / 5 * 4;
+      const getTop = animate_scroll.getBoundingClientRect().top;
+      if (x > getTop) {
+        card.classList.add(`card_active`)
+        read_content.classList.add(`read_content_active`)
+      } else {
+       // card.classList.remove(`card_active`)
+      }
+  }
+  _animatereadcontent() {
+    window.addEventListener(`scroll`, this._animateFuctionreadcontent);
+  }
+  _animateFuctionreadcontent() {
+    const x = window.innerHeight / 5 * 4;
+      const getTop = animate_scroll_read_content.getBoundingClientRect().top;
+      if (x > getTop) {
+        read_content.classList.add(`read_content_active`)
+      } else {
+       // card.classList.remove(`card_active`)
+      }
+  }
 }
 
 const converter = new Converter();
